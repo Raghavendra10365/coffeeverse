@@ -1,0 +1,117 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f5f1ec;
+    color: #2b1b12;
+}
+
+/* Navigation */
+header {
+    background: #2b1b12;
+    padding: 15px 40px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #f5f1ec;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #f5f1ec;
+}
+
+/* Hero */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 48px;
+    color: #ffffff;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.hero button {
+    padding: 12px 25px;
+    background: #8b5e3c;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Sections */
+section {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu li {
+    padding: 8px;
+}
+
+/* Footer-like spacing */
+.contact {
+    background: #2b1b12;
+    color: white;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+}
