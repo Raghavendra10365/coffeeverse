@@ -42,14 +42,17 @@ nav {
 /* Hero */
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("hero.jpg.png");
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-
 .hero h2 {
     font-size: 48px;
     color: #ffffff;
@@ -115,3 +118,4 @@ section {
         padding: 40px 20px;
     }
 }
+
