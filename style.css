@@ -1,3 +1,11 @@
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    color: #f5f1ec;
+    cursor: pointer;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -110,6 +118,26 @@ section {
 }
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #2b1b12;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        padding: 12px 0;
+    }
+
 
     nav {
         flex-direction: row;
