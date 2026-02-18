@@ -24,6 +24,7 @@
                 <li><a href="brewing.html">Brewing</a></li>
                 <li><a href="origins.html">Origins</a></li>
                 <li><a href="roast.html">Roast Levels</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
             </ul>
         </nav>
 
@@ -85,6 +86,11 @@
     <!-- Coffee Types -->
     <section class="coffee-types">
         <h2>Coffee Types</h2>
+        <input 
+            type="text" 
+            id="coffeeSearch" 
+            placeholder="Search coffee types..." 
+            class="search-input">
 
         <div class="types-grid">
 
@@ -117,16 +123,37 @@
                 <h3>Cold Brew</h3>
                 <p>Coffee brewed cold over many hours, smooth and low in acidity.</p>
             </div>
+            <p id="noResultsMessage" class="no-results" style="display: none;">
+                No coffee types found.
+            </p>
 
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: hello@coffeeverse.com</p>
-    </section>
+    <h2>Contact Us</h2>
 
-    <script src="script.js"></script>
+    <form action="https://formsubmit.co/sraghvendra003@gmail.com" method="POST" class="contact-form">
+
+        <input type="text" name="name" placeholder="Your Name" required>
+
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+        <!-- Disable captcha -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Redirect after submit -->
+        <input type="hidden" name="_next" value="thankyou.html">
+
+    </form>
+</section>
+
+
+<script src="script.js"></script>
 </body>
 </html>
