@@ -10,12 +10,17 @@
 body {
     background-color: #f5f1ec;
     color: #2b1b12;
+    padding-top: 80px;
 }
 
 /* Navigation */
 header {
     background: #2b1b12;
     padding: 15px 40px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 nav {
