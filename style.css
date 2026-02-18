@@ -180,3 +180,253 @@ section p {
     margin: auto;
     line-height: 1.6;
 }
+.offers, .popular, .why {
+    background: #ffffff;
+    margin: 40px 0;
+    padding: 60px 20px;
+    border-radius: 10px;
+}
+
+.offers p,
+.why p {
+    font-size: 18px;
+}
+
+.popular ul {
+    list-style: none;
+    padding: 0;
+}
+
+.popular li {
+    background: #f5f1ec;
+    margin: 10px auto;
+    padding: 12px;
+    max-width: 300px;
+    border-radius: 8px;
+}
+.knowledge {
+    background: #f5f1ec;
+}
+
+.knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.knowledge-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.knowledge-card h3 {
+    margin-bottom: 10px;
+}
+.coffee-types {
+    background: white;
+}
+
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.type-card {
+    background: #f5f1ec;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.type-card h3 {
+    margin-bottom: 10px;
+}
+.brewing {
+    background: #f5f1ec;
+}
+
+.brew-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.brew-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.brew-card h3 {
+    margin-bottom: 10px;
+}
+.origins {
+    background: white;
+}
+
+.origin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.origin-card {
+    padding: 25px;
+    border-radius: 12px;
+    color: #2b1b12;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Africa */
+.origin-card:nth-child(1) {
+    background: linear-gradient(
+        135deg,
+        #f4d03f,
+        #f39c12,
+        #27ae60
+    );
+}
+
+/* South America */
+.origin-card:nth-child(2) {
+    background: linear-gradient(
+        135deg,
+        #3498db,
+        #f1c40f,
+        #27ae60
+    );
+}
+
+/* Central America */
+.origin-card:nth-child(3) {
+    background: linear-gradient(
+        135deg,
+        #5dade2,
+        #ec7063,
+        #f7dc6f
+    );
+}
+
+/* Asia-Pacific */
+.origin-card:nth-child(4) {
+    background: linear-gradient(
+        135deg,
+        #9b59b6,
+        #e74c3c,
+        #f39c12
+    );
+}
+
+.origin-card h3 {
+    font-weight: 600;
+}
+
+.origin-card p {
+    background: rgba(255,255,255,0.7);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+
+/* Africa */
+.origin-card:nth-child(1) {
+    background: #fdebd0;
+}
+
+/* South America */
+.origin-card:nth-child(2) {
+    background: #d6eaf8;
+}
+
+/* Central America */
+.origin-card:nth-child(3) {
+    background: #d5f5e3;
+}
+
+/* Asia-Pacific */
+.origin-card:nth-child(4) {
+    background: #ebdef0;
+}
+
+
+.origin-card h3 {
+    margin-bottom: 10px;
+}
+.roast {
+    background: #f5f1ec;
+}
+
+.roast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.roast-card {
+    padding: 25px;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Light Roast */
+.roast-card:nth-child(1) {
+    background: #c8a27c;
+}
+
+/* Medium Roast */
+.roast-card:nth-child(2) {
+    background: #8b5e3c;
+}
+
+/* Dark Roast */
+.roast-card:nth-child(3) {
+    background: #3b2415;
+}
+
+.roast-card h3 {
+    margin-bottom: 10px;
+}
+/* Micro Animations */
+.type-card,
+.brew-card,
+.origin-card,
+.roast-card,
+.knowledge-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.type-card:hover,
+.brew-card:hover,
+.origin-card:hover,
+.roast-card:hover,
+.knowledge-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+.type-card,
+.brew-card,
+.origin-card,
+.roast-card,
+.knowledge-card {
+    animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
