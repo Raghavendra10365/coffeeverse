@@ -131,10 +131,21 @@ section {
         gap: 15px;
     }
 
+    nav {
+    flex-direction: row;
+}
+
     .nav-links {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    body {
+        padding-top: 70px;
     }
 
     .hero h2 {
