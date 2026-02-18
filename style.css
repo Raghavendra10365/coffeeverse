@@ -110,6 +110,21 @@ section {
 }
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding-top: 120px;
+    }
+
+    header {
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
 
     nav {
         flex-direction: column;
