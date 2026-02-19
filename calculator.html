@@ -10,46 +10,67 @@
 </head>
 <body>
 
-<header>
-    <nav class="navbar">
-        <div class="logo">CoffeeVerse</div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">CoffeeVerse</div>
 
-        <div class="hamburger" id="hamburger">
-            ☰
+            <div class="hamburger" id="hamburger">
+                ☰
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="types.html">Types</a></li>
+                <li><a href="brewing.html">Brewing</a></li>
+                <li><a href="origins.html">Origins</a></li>
+                <li><a href="roast.html">Roast</a></li>
+                <li><a href="calculator.html" class="active">Calculator</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="calculator-section">
+        <h1>Coffee Brew Ratio Calculator</h1>
+        <p>Find the perfect coffee-to-water ratio for your brew.</p>
+
+        <div class="calculator-card">
+
+            <label for="waterAmount">Water Amount (ml)</label>
+            <input type="number" id="waterAmount" placeholder="Enter water in ml">
+
+            <label for="ratio">Brew Ratio (e.g., 15 for 1:15)</label>
+            <input type="number" id="ratio" placeholder="Enter ratio number">
+
+            <button id="calculateBtn">Calculate Coffee Needed</button>
+
+            <div id="result" class="result"></div>
+
         </div>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: hello@coffeeverse.com</p>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
 
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="types.html">Types</a></li>
-            <li><a href="brewing.html">Brewing</a></li>
-            <li><a href="origins.html">Origins</a></li>
-            <li><a href="roast.html">Roast</a></li>
-            <li><a href="calculator.html" class="active">Calculator</a></li>
-        </ul>
-    </nav>
-</header>
+        <form action="https://formsubmit.co/sraghvendra003@gmail.com" method="POST" class="contact-form">
 
-<section class="calculator-section">
-    <h1>Coffee Brew Ratio Calculator</h1>
-    <p>Find the perfect coffee-to-water ratio for your brew.</p>
+            <input type="text" name="name" placeholder="Your Name" required>
 
-    <div class="calculator-card">
+            <input type="email" name="email" placeholder="Your Email" required>
 
-        <label for="waterAmount">Water Amount (ml)</label>
-        <input type="number" id="waterAmount" placeholder="Enter water in ml">
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
-        <label for="ratio">Brew Ratio (e.g., 15 for 1:15)</label>
-        <input type="number" id="ratio" placeholder="Enter ratio number">
+            <button type="submit">Send Message</button>
 
-        <button id="calculateBtn">Calculate Coffee Needed</button>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="thankyou.html">
 
-        <div id="result" class="result"></div>
-
-    </div>
-</section>
-
-<!-- Link your existing JS file -->
-<script src="script.js"></script>
+        </form>
+    </section>
+    <!-- Link your existing JS file -->
+    <script src="script.js"></script>
 
 </body>
 </html>

@@ -118,7 +118,24 @@
         <h2>Contact Us</h2>
         <p>Email: hello@coffeeverse.com</p>
     </section>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
 
+        <form action="https://formsubmit.co/sraghvendra003@gmail.com" method="POST" class="contact-form">
+
+            <input type="text" name="name" placeholder="Your Name" required>
+
+            <input type="email" name="email" placeholder="Your Email" required>
+
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="thankyou.html">
+
+        </form>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>
