@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bark: #1a1208; --bark2: #221809; --bark3: #2e200e;
+  --amber: #c07830; --honey: #d4943a; --gold: #e8b050;
+  --cream: #f5e6c8; --parchment: #ede0c4; --latte: #c8aa80;
+  --muted: #7a6040; --faint: #4a3820;
+  --ff-display: 'Cormorant', Georgia, serif;
+  --ff-sans: 'Jost', sans-serif;
+  --ff-mono: 'DM Mono', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bark);
+  color: var(--cream);
+  font-family: var(--ff-sans);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 9000;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+}
+
+.sep {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(192,120,48,.15), transparent);
+}
+
+.btn {
+  font-family: var(--ff-mono);
+  font-size: .6rem; letter-spacing: .18em; text-transform: uppercase;
+  text-decoration: none; padding: .9rem 2.2rem;
+  transition: all .35s var(--ease); cursor: none;
+  border: none; display: inline-block;
+}
+.btn-primary { background: var(--amber); color: var(--bark); }
+.btn-primary:hover { background: var(--honey); }
+.btn-ghost { border: 1px solid rgba(192,120,48,.4); color: var(--latte); background: transparent; }
+.btn-ghost:hover { border-color: var(--honey); color: var(--cream); }
+
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: .1s; }
+.reveal.d2 { transition-delay: .2s; }
+.reveal.d3 { transition-delay: .3s; }
+.reveal.d4 { transition-delay: .4s; }
+
+.section-label {
+  font-family: var(--ff-mono); font-size: .56rem;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: var(--amber); display: flex; align-items: center; gap: .8rem;
+  margin-bottom: 1.5rem;
+}
+.section-label::before {
+  content: ''; display: block; width: 24px; height: 1px; background: var(--amber);
+}
+
+.footer {
+  background: var(--bark);
+  border-top: 1px solid rgba(192,120,48,.08);
+  padding: 3rem 4rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 2rem;
+}
+.footer-logo {
+  font-family: var(--ff-display); font-size: 1.3rem;
+  font-weight: 600; font-style: italic;
+  color: var(--honey); text-decoration: none;
+}
+.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; list-style: none; }
+.footer-links a {
+  font-family: var(--ff-mono); font-size: .56rem;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color .25s;
+}
+.footer-links a:hover { color: var(--honey); }
+.footer-copy { font-family: var(--ff-mono); font-size: .52rem; color: var(--faint); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .footer { flex-direction: column; padding: 2rem 1.5rem; }
+}
+.cursor-dot {
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--honey);
+  box-shadow: 0 0 12px rgba(212, 148, 58, 0.6);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  position: fixed;
+  z-index: 9998;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 148, 58, 0.35);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}

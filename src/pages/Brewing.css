@@ -1,0 +1,166 @@
+.brewing-section {
+  padding: 4rem;
+  background: var(--bark);
+}
+.brewing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(192,120,48,.06);
+}
+
+/* TIMER CARD */
+.timer-card {
+  background: var(--bark2);
+  padding: 2.5rem;
+  display: flex; flex-direction: column; gap: 1.5rem;
+  transition: background .3s;
+}
+.timer-done { background: rgba(26,40,20,.6); }
+
+.timer-method-tag {
+  font-family: var(--ff-mono);
+  font-size: .48rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--amber);
+  margin-bottom: .3rem;
+}
+.timer-method-name {
+  font-family: var(--ff-display);
+  font-size: 2rem; font-weight: 600;
+  font-style: italic; color: var(--cream);
+}
+
+/* SPECS */
+.timer-specs {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1px; background: rgba(192,120,48,.06);
+}
+.timer-spec {
+  background: var(--bark3);
+  padding: 1rem .5rem; text-align: center;
+}
+.timer-spec-val {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 1.1rem; font-weight: 600;
+  font-style: italic; color: var(--honey);
+  margin-bottom: .2rem;
+}
+.timer-spec-key {
+  font-family: var(--ff-mono);
+  font-size: .4rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--faint);
+}
+
+/* CIRCLE TIMER */
+.timer-circle-wrap {
+  position: relative;
+  width: 130px; height: 130px;
+  margin: 0 auto;
+}
+.timer-svg {
+  width: 100%; height: 100%;
+  transform: rotate(-90deg);
+}
+.timer-track {
+  fill: none;
+  stroke: rgba(192,120,48,.1);
+  stroke-width: 2;
+}
+.timer-fill {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.timer-time {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-mono);
+  font-size: 1.4rem; color: var(--cream);
+}
+.timer-done .timer-time { color: #6abf69; font-size: 2rem; }
+.timer-done .timer-fill { stroke: #6abf69; }
+
+/* CONTROLS */
+.timer-controls {
+  display: flex; gap: .6rem; justify-content: center;
+}
+.timer-btn {
+  font-family: var(--ff-mono);
+  font-size: .5rem; letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .6rem 1.2rem;
+  border: none; cursor: none;
+  transition: all .25s;
+}
+.timer-btn-start { background: var(--amber); color: var(--bark); }
+.timer-btn-start:hover { background: var(--honey); }
+.timer-btn-pause { background: rgba(192,120,48,.2); color: var(--latte); }
+.timer-btn-pause:hover { background: rgba(192,120,48,.3); }
+.timer-btn-resume { background: var(--amber); color: var(--bark); }
+.timer-btn-resume:hover { background: var(--honey); }
+.timer-btn-reset { background: rgba(255,255,255,.04); color: var(--faint); }
+.timer-btn-reset:hover { color: var(--muted); }
+
+/* STEPS */
+.timer-steps {
+  display: flex; flex-direction: column; gap: .6rem;
+}
+.timer-step {
+  display: flex; gap: .8rem; align-items: flex-start;
+  padding: .6rem 0;
+  border-bottom: 1px solid rgba(192,120,48,.05);
+  transition: all .3s;
+}
+.step-num {
+  font-family: var(--ff-mono);
+  font-size: .44rem; letter-spacing: .1em;
+  color: var(--faint); flex-shrink: 0;
+  margin-top: .2rem;
+}
+.step-text {
+  font-size: .8rem; font-weight: 300;
+  line-height: 1.6; color: var(--muted);
+  transition: color .3s;
+}
+.step-active .step-text { color: var(--cream); }
+.step-active .step-num { color: var(--amber); }
+.step-done .step-text {
+  color: var(--faint);
+  text-decoration: line-through;
+}
+
+/* TIPS */
+.brewing-tips {
+  padding: 6rem 4rem;
+  background: var(--bark2);
+}
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1px;
+  background: rgba(192,120,48,.06);
+  margin-top: 3rem;
+}
+.tip-card {
+  background: var(--bark2);
+  padding: 2rem;
+}
+.tip-title {
+  font-family: var(--ff-display);
+  font-size: 1.4rem; font-weight: 600;
+  font-style: italic; color: var(--honey);
+  margin-bottom: .8rem;
+}
+.tip-desc {
+  font-size: .82rem; font-weight: 300;
+  line-height: 1.75; color: var(--latte);
+}
+
+@media (max-width: 900px) {
+  .brewing-section { padding: 1.5rem; }
+  .brewing-grid { grid-template-columns: 1fr; }
+  .brewing-tips { padding: 4rem 1.5rem; }
+  .tips-grid { grid-template-columns: repeat(2,1fr); }
+}

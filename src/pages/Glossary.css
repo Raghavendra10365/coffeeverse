@@ -1,0 +1,124 @@
+.glossary-search-wrap {
+  padding: 3rem 4rem 0;
+  max-width: 1300px; margin: 0 auto;
+  background: var(--bark);
+}
+.glossary-search-box { position: relative; }
+.glossary-search-icon {
+  position: absolute; left: 1.2rem; top: 50%;
+  transform: translateY(-50%);
+  color: var(--amber); font-size: 1.1rem; pointer-events: none;
+}
+.glossary-search-input {
+  width: 100%; padding: 1.1rem 1.5rem 1.1rem 3.5rem;
+  background: var(--bark2);
+  border: 1px solid rgba(192,120,48,.15);
+  color: var(--cream); font-family: var(--ff-sans);
+  font-size: .92rem; font-weight: 300;
+  outline: none; transition: border-color .3s;
+}
+.glossary-search-input::placeholder { color: var(--faint); }
+.glossary-search-input:focus { border-color: rgba(192,120,48,.4); }
+.glossary-count {
+  font-family: var(--ff-mono); font-size: .5rem;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--faint); margin-top: .8rem;
+}
+
+.glossary-alpha {
+  padding: 1.5rem 4rem 0;
+  max-width: 1300px; margin: 0 auto;
+  display: flex; gap: .4rem; flex-wrap: wrap;
+  background: var(--bark);
+}
+.alpha-btn {
+  font-family: var(--ff-mono); font-size: .5rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .35rem .6rem; background: none;
+  border: 1px solid rgba(192,120,48,.1);
+  color: var(--faint); cursor: none; transition: all .2s;
+}
+.alpha-btn:hover { border-color: rgba(192,120,48,.3); color: var(--muted); }
+.alpha-btn.active { background: rgba(192,120,48,.12); border-color: var(--amber); color: var(--honey); }
+
+.glossary-wrap {
+  padding: 3rem 4rem 5rem;
+  max-width: 1300px; margin: 0 auto;
+  background: var(--bark);
+}
+.glossary-group { margin-bottom: 2.5rem; }
+.glossary-letter {
+  font-family: var(--ff-display);
+  font-size: 3.5rem; font-weight: 600; font-style: italic;
+  color: rgba(192,120,48,.12); line-height: 1;
+  border-bottom: 1px solid rgba(192,120,48,.06);
+  padding-bottom: .5rem; margin-bottom: .5rem;
+}
+.glossary-row {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 2rem; padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(192,120,48,.04);
+  transition: padding .2s;
+  align-items: start;
+}
+.glossary-row:hover { padding-left: .5rem; }
+.glossary-term-name {
+  font-family: var(--ff-display);
+  font-size: 1.2rem; font-weight: 600;
+  font-style: italic; color: var(--honey); line-height: 1.2;
+}
+.glossary-term-cat {
+  font-family: var(--ff-mono); font-size: .42rem;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--faint); margin-top: .25rem;
+}
+.glossary-term-def {
+  font-size: .86rem; font-weight: 300;
+  line-height: 1.85; color: var(--latte);
+}
+.glossary-term-link {
+  display: inline-block; margin-top: .5rem;
+  font-family: var(--ff-mono); font-size: .46rem;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--amber); text-decoration: none;
+  transition: color .2s;
+}
+.glossary-term-link:hover { color: var(--honey); }
+.hl { background: rgba(192,120,48,.2); color: var(--honey); }
+
+.glossary-empty {
+  text-align: center; padding: 4rem 2rem;
+}
+.glossary-empty-title {
+  font-family: var(--ff-display);
+  font-size: 2rem; font-style: italic; color: var(--muted);
+  margin-bottom: .5rem;
+}
+.glossary-empty-sub {
+  font-family: var(--ff-mono); font-size: .52rem;
+  letter-spacing: .14em; color: var(--faint);
+}
+
+.glossary-cta {
+  background: var(--bark3);
+  border-top: 1px solid rgba(192,120,48,.08);
+  padding: 3rem 4rem;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+}
+.glossary-cta-title {
+  font-family: var(--ff-display);
+  font-size: 1.8rem; font-weight: 600;
+  font-style: italic; color: var(--cream); margin-bottom: .4rem;
+}
+.glossary-cta-sub {
+  font-size: .85rem; font-weight: 300; color: var(--latte);
+}
+
+@media (max-width: 768px) {
+  .glossary-search-wrap,
+  .glossary-alpha,
+  .glossary-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .glossary-row { grid-template-columns: 1fr; gap: .5rem; }
+  .glossary-cta { flex-direction: column; padding: 2rem 1.5rem; }
+}
