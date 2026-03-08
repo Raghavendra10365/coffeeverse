@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Quiz.css'
+import { supabase } from '../supabaseClient'
 
 const QUESTIONS = [
   {
@@ -92,7 +93,12 @@ export default function Quiz() {
 
   const next = () => {
     if (currentQ < QUESTIONS.length - 1) setCurrentQ(q => q + 1)
-    else { setResult(getResult(answers)); setScreen('result') }
+    else { 
+      const r = getResult(answers)
+      setResult(r)
+      setScreen('result')
+      saveQuizResult(r.drink)
+    }
   }
 
   const back = () => { if (currentQ > 0) setCurrentQ(q => q - 1) }
@@ -102,6 +108,18 @@ export default function Quiz() {
   const q = QUESTIONS[currentQ]
   const progress = ((currentQ + 1) / QUESTIONS.length) * 100
 
+  const saveQuizResult = async (drinkName) => {
+    const { error } = await supabase
+      .from('quiz_results')
+      .insert({
+        score: Object.keys(answers).length,
+        total_questions: QUESTIONS.length,
+        percentage: 100,
+        time_taken_seconds: 0
+      })
+    if (error) console.error('Error saving:', error.message)
+    else console.log('Quiz result saved! ✅', drinkName)
+  }
   return (
     <main>
       <div className="quiz-page">
