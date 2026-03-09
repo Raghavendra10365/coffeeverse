@@ -5,6 +5,7 @@ import './Types.css'
 const TYPES = [
   {
     name: 'Espresso',
+    photo: 'https://images.unsplash.com/photo-1595928642581-f50f4f3453a5?w=800&auto=format&fit=crop',
     tag: 'The foundation of everything',
     desc: 'A concentrated shot of coffee made by forcing hot water through finely ground coffee at high pressure. Bold, rich, and the base for almost every coffee drink you\'ve ever had.',
     specs: { Ratio:'1:2', Volume:'30ml', Temp:'93°C', Time:'25–30s' },
@@ -13,6 +14,7 @@ const TYPES = [
   },
   {
     name: 'Americano',
+    photo: 'https://images.unsplash.com/photo-1531835207745-506a1bc035d8?w=800&auto=format&fit=crop',
     tag: 'Espresso, opened up',
     desc: 'An espresso shot diluted with hot water. You get all the depth and complexity of espresso but in a longer, gentler drink. Clean, bold, and completely black.',
     specs: { Ratio:'1:8', Volume:'240ml', Temp:'93°C', Time:'5min' },
@@ -21,6 +23,7 @@ const TYPES = [
   },
   {
     name: 'Cappuccino',
+    photo: 'https://images.unsplash.com/photo-1608070734668-e74dc3dda037?w=800&auto=format&fit=crop',
     tag: 'Equal thirds — a classic',
     desc: 'One third espresso, one third steamed milk, one third thick foam. The foam gives it a light, airy texture. Traditionally a morning drink in Italy, never ordered after noon.',
     specs: { Ratio:'1:4', Volume:'150ml', Temp:'65°C', Time:'5min' },
@@ -29,6 +32,7 @@ const TYPES = [
   },
   {
     name: 'Latte',
+    photo: 'https://plus.unsplash.com/premium_photo-1674327105076-36c4419864cf?w=800&auto=format&fit=crop',
     tag: 'The world\'s favourite',
     desc: 'One shot of espresso with a large amount of steamed milk and a thin layer of microfoam. Mild, creamy, and the most approachable espresso drink. The canvas for latte art.',
     specs: { Ratio:'1:6', Volume:'300ml', Temp:'65°C', Time:'5min' },
@@ -37,6 +41,7 @@ const TYPES = [
   },
   {
     name: 'Cold Brew',
+    photo: 'https://images.unsplash.com/photo-1591933940638-d253adcdcb98?w=800&auto=format&fit=crop',
     tag: 'No heat, no bitterness',
     desc: 'Coffee steeped in cold water for 12–24 hours. No heat means no bitterness — just naturally sweet, smooth, concentrated coffee. Served over ice, often diluted with water or milk.',
     specs: { Ratio:'1:8', Volume:'300ml', Temp:'Cold', Time:'12–24h' },
@@ -85,6 +90,9 @@ export default function Types() {
       <section className="types-section">
         {TYPES.map((type, i) => (
           <div key={type.name} ref={addRef} className={`reveal type-row ${i % 2 === 1 ? 'type-row-flip' : ''}`}>
+            <div className="type-img-wrap">
+              <img src={type.photo} alt={type.name} className="type-img" />
+            </div>
             <div className="type-info">
               <p className="type-tag">{type.tag}</p>
               <h2 className="type-name">{type.name}</h2>
