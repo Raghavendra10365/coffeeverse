@@ -9,6 +9,7 @@ import Roast from './pages/Roast'
 import Calculator from './pages/Calculator'
 import Quiz from './pages/Quiz'
 import Glossary from './pages/Glossary'
+import WorldVersions from './pages/WorldVersions'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Cursor />
       <Navbar />
       <Routes>
+        <Route path="/quiz/world-versions/:drink" element={<WorldVersions />} />        
         <Route path="/" element={<Home />} />
         <Route path="/types" element={<Types />} />
         <Route path="/brewing" element={<Brewing />} />

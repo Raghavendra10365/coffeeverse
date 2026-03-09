@@ -1,0 +1,89 @@
+.wv-page {
+  min-height: 90vh;
+  padding: 8rem 4rem 5rem;
+  background: var(--bark);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.wv-back {
+  font-family: var(--ff-mono);
+  font-size: .5rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted);
+  text-decoration: none; transition: color .25s;
+  display: inline-block; margin-bottom: 2rem;
+}
+.wv-back:hover { color: var(--amber); }
+.wv-header { margin-bottom: 4rem; }
+.wv-tag {
+  font-family: var(--ff-mono);
+  font-size: .56rem; letter-spacing: .28em;
+  text-transform: uppercase; color: var(--amber);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .8rem;
+}
+.wv-tag::before {
+  content: ''; display: block;
+  width: 24px; height: 1px; background: var(--amber);
+}
+.wv-title {
+  font-family: var(--ff-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 600; font-style: italic;
+  line-height: .95; color: var(--cream);
+  margin-bottom: 1rem;
+}
+.wv-title em { color: var(--honey); font-style: normal; }
+.wv-desc {
+  font-size: .9rem; font-weight: 300;
+  line-height: 1.8; color: var(--latte);
+  max-width: 500px;
+}
+.wv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-bottom: 4rem;
+  background: rgba(192,120,48,.06);
+}
+.wv-card {
+  background: var(--bark2);
+  overflow: hidden;
+  transition: transform .3s var(--ease);
+}
+.wv-card:hover { transform: translateY(-4px); }
+.wv-card-img-wrap {
+  position: relative;
+  height: 220px; overflow: hidden;
+}
+.wv-card-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8) saturate(1.1);
+  transition: transform .5s var(--ease);
+}
+.wv-card:hover .wv-card-img { transform: scale(1.06); }
+.wv-card-country {
+  position: absolute; top: 1rem; left: 1rem;
+  font-family: var(--ff-mono);
+  font-size: .44rem; letter-spacing: .18em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,.55);
+  color: var(--amber); padding: .3rem .7rem;
+  backdrop-filter: blur(4px);
+}
+.wv-card-info { padding: 1.2rem 1.5rem; }
+.wv-card-name {
+  font-family: var(--ff-display);
+  font-size: 1.3rem; font-style: italic;
+  font-weight: 600; color: var(--cream);
+}
+.wv-actions {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .wv-page { padding: 7rem 1.5rem 4rem; }
+  .wv-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .wv-grid { grid-template-columns: 1fr; }
+}
