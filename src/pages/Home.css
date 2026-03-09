@@ -8,7 +8,9 @@
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(192,120,48,.08), transparent 60%);
+  background: 
+    linear-gradient(to right, rgba(20,12,6,0.92) 40%, rgba(20,12,6,0.5) 100%),
+    url('/coffeeverse.png') center center / cover no-repeat;
   pointer-events: none;
 }
 .hero-content {
