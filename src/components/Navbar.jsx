@@ -1,10 +1,13 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { supabase } from '../supabaseClient'
 import './Navbar.css'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
+  const [user, setUser] = useState(null)
+  const navigate = useNavigate()
   let lastY = 0
 
   useEffect(() => {
@@ -16,6 +19,21 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      setUser(data.session?.user ?? null)
+    })
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+    })
+    return () => listener.subscription.unsubscribe()
+  }, [])
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut()
+    navigate('/')
+  }
 
   return (
     <>
@@ -32,7 +50,16 @@ export default function Navbar() {
           <li><NavLink to="/quiz" onClick={() => setMenuOpen(false)}>Quiz</NavLink></li>
           <li><NavLink to="/glossary" onClick={() => setMenuOpen(false)}>Glossary</NavLink></li>
         </ul>
-        <Link to="/login" className="nav-login-btn">Login</Link>
+        {user ? (
+          <div className="nav-user">
+            <Link to="/dashboard" className="nav-username">
+              {user.user_metadata?.full_name || user.email.split('@')[0]}
+            </Link>
+            <button className="nav-logout-btn" onClick={handleLogout}>Log Out</button>
+          </div>
+        ) : (
+          <Link to="/login" className="nav-login-btn">Login</Link>
+        )}
         <button className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           <span /><span /><span />
         </button>

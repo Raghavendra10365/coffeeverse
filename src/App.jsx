@@ -11,6 +11,7 @@ import Quiz from './pages/Quiz'
 import Glossary from './pages/Glossary'
 import WorldVersions from './pages/WorldVersions'
 import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Cursor />
       <Navbar />
       <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/quiz/world-versions/:drink" element={<WorldVersions />} />        
         <Route path="/" element={<Home />} />

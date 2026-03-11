@@ -77,3 +77,30 @@
   transition: opacity .2s;
 }
 .nav-login-btn:hover { opacity: .85; color: var(--bark); }
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-username {
+  font-family: var(--ff-mono);
+  font-size: .54rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--amber);
+  text-decoration: none;
+}
+.nav-logout-btn {
+  font-family: var(--ff-mono);
+  font-size: .52rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid rgba(192,120,48,.3);
+  color: var(--faint);
+  padding: .5rem 1rem;
+  cursor: pointer;
+  transition: all .2s;
+  border-radius: 0;
+}
+.nav-logout-btn:hover { border-color: var(--amber); color: var(--amber); }
