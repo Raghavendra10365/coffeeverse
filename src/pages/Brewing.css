@@ -164,3 +164,27 @@
   .brewing-tips { padding: 4rem 1.5rem; }
   .tips-grid { grid-template-columns: repeat(2,1fr); }
 }
+/* BEAKER ANIMATION */
+.beaker-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+.beaker-svg {
+  width: 120px;
+  height: 160px;
+  overflow: visible;
+}
+.beaker-time {
+  font-family: var(--ff-mono);
+  font-size: 1.2rem;
+  letter-spacing: .1em;
+  color: var(--honey);
+  text-align: center;
+}
+.timer-done .beaker-time {
+  color: var(--amber);
+  font-size: 1.1rem;
+}

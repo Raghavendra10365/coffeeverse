@@ -5,6 +5,7 @@ import './Origins.css'
 const REGIONS = [
   {
     name: 'Africa',
+    photo: 'https://images.unsplash.com/photo-1630861412229-67e2acb44b7a?w=800&auto=format&fit=crop',
     sub: 'Ethiopia · Kenya · Rwanda',
     desc: 'The birthplace of coffee. African beans are known for their extraordinary complexity — bright acidity, floral aromas, and fruit-forward flavours that no other region can match.',
     flavours: ['Blueberry', 'Jasmine', 'Citrus', 'Bergamot'],
@@ -13,6 +14,7 @@ const REGIONS = [
   },
   {
     name: 'South America',
+    photo: 'https://images.unsplash.com/photo-1493925410384-84f842e616fb?w=800&auto=format&fit=crop',
     sub: 'Colombia · Brazil · Peru',
     desc: 'The world\'s largest coffee producing region. South American coffees are known for their balance, sweetness, and approachability — perfect for beginners and espresso blends.',
     flavours: ['Caramel', 'Chocolate', 'Nuts', 'Brown Sugar'],
@@ -21,6 +23,7 @@ const REGIONS = [
   },
   {
     name: 'Central America',
+    photo: 'https://images.unsplash.com/photo-1712607613395-3f0612ad16eb?w=800&auto=format&fit=crop',
     sub: 'Guatemala · Costa Rica · Panama',
     desc: 'Central American coffees sit between Africa\'s brightness and South America\'s sweetness — clean, structured, and often with a delicate fruit or honey character.',
     flavours: ['Apple', 'Honey', 'Toffee', 'Stone Fruit'],
@@ -29,6 +32,7 @@ const REGIONS = [
   },
   {
     name: 'Asia Pacific',
+    photo: 'https://plus.unsplash.com/premium_photo-1668149518588-774c7c9aa142?w=800&auto=format&fit=crop',
     sub: 'Indonesia · Vietnam · Papua New Guinea',
     desc: 'Asian coffees are a completely different experience — low acidity, heavy body, earthy and syrupy. Often used in dark roast blends and traditional espresso for their bold depth.',
     flavours: ['Earth', 'Cedar', 'Dark Chocolate', 'Spice'],
@@ -67,6 +71,7 @@ export default function Origins() {
         {REGIONS.map((region, i) => (
           <div key={region.name} ref={addRef} className={`reveal origin-row ${i % 2 === 1 ? 'origin-row-flip' : ''}`}>
             <div className="origin-map">
+              <img src={region.photo} alt={region.name} className="origin-map-img" />
               <div className="origin-map-inner">
                 <p className="origin-map-name">{region.name}</p>
                 <p className="origin-map-sub">{region.sub}</p>

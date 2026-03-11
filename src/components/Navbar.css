@@ -65,3 +65,15 @@
   .nav-links a { display: block; padding: 1rem 0; font-size: .68rem; }
   .nav-toggle { display: block; z-index: 900; }
 }
+.nav-login-btn {
+  font-family: var(--ff-mono);
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--bark);
+  background: var(--amber);
+  padding: .55rem 1.2rem;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.nav-login-btn:hover { opacity: .85; color: var(--bark); }

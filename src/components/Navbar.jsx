@@ -32,6 +32,7 @@ export default function Navbar() {
           <li><NavLink to="/quiz" onClick={() => setMenuOpen(false)}>Quiz</NavLink></li>
           <li><NavLink to="/glossary" onClick={() => setMenuOpen(false)}>Glossary</NavLink></li>
         </ul>
+        <Link to="/login" className="nav-login-btn">Login</Link>
         <button className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           <span /><span /><span />
         </button>
