@@ -10,7 +10,7 @@ import Calculator from './pages/Calculator'
 import Quiz from './pages/Quiz'
 import Glossary from './pages/Glossary'
 import WorldVersions from './pages/WorldVersions'
-import Login from './pages/login'
+import Login from './pages/Login'
 
 export default function App() {
   return (

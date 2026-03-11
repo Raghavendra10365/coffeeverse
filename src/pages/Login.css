@@ -110,3 +110,9 @@
   font-size: .8rem;
   text-decoration: underline;
 }
+.auth-error {
+  font-size: .8rem;
+  color: var(--amber);
+  text-align: center;
+  margin: 0;
+}

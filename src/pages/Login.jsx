@@ -1,16 +1,37 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { supabase } from '../supabaseClient'
 import './Login.css'
 
 export default function Login() {
-  const [mode, setMode] = useState('login') // 'login' or 'signup'
+  const [mode, setMode] = useState('login')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    alert('Backend coming soon!')
+    setError('')
+    setLoading(true)
+
+    if (mode === 'signup') {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { full_name: name } }
+      })
+      if (error) { setError(error.message); setLoading(false); return }
+      setError('✅ Account created! You can now log in.')
+      setMode('login')
+    } else {
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      if (error) { setError(error.message); setLoading(false); return }
+      navigate('/')
+    }
+    setLoading(false)
   }
 
   return (
@@ -18,8 +39,8 @@ export default function Login() {
       <div className="auth-card">
         <Link to="/" className="auth-logo">Coffee<span>Verse</span></Link>
         <div className="auth-tabs">
-          <button className={mode === 'login' ? 'active' : ''} onClick={() => setMode('login')}>Log In</button>
-          <button className={mode === 'signup' ? 'active' : ''} onClick={() => setMode('signup')}>Sign Up</button>
+          <button className={mode === 'login' ? 'active' : ''} onClick={() => { setMode('login'); setError('') }}>Log In</button>
+          <button className={mode === 'signup' ? 'active' : ''} onClick={() => { setMode('signup'); setError('') }}>Sign Up</button>
         </div>
         <form className="auth-form" onSubmit={handleSubmit}>
           {mode === 'signup' && (
@@ -36,13 +57,14 @@ export default function Login() {
             <label>Password</label>
             <input type="password" placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
           </div>
-          <button type="submit" className="auth-btn">
-            {mode === 'login' ? 'Log In' : 'Create Account'}
+          {error && <p className="auth-error">{error}</p>}
+          <button type="submit" className="auth-btn" disabled={loading}>
+            {loading ? 'Please wait...' : mode === 'login' ? 'Log In' : 'Create Account'}
           </button>
         </form>
         <p className="auth-switch">
           {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
-          <button onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}>
+          <button onClick={() => { setMode(mode === 'login' ? 'signup' : 'login'); setError('') }}>
             {mode === 'login' ? 'Sign Up' : 'Log In'}
           </button>
         </p>
