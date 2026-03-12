@@ -8,6 +8,7 @@ export default function Dashboard() {
   const [user, setUser] = useState(null)
   const [quizHistory, setQuizHistory] = useState([])
   const [savedBrews, setSavedBrews] = useState([])
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -19,8 +20,14 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!user) return
-    supabase.from('quiz_results').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).then(({ data }) => setQuizHistory(data || []))
-    supabase.from('saved_brews').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).then(({ data }) => setSavedBrews(data || []))
+    Promise.all([
+      supabase.from('quiz_results').select('*').eq('user_id', user.id).order('created_at', { ascending: false }),
+      supabase.from('saved_brews').select('*').eq('user_id', user.id).order('created_at', { ascending: false })
+    ]).then(([quiz, brews]) => {
+      setQuizHistory(quiz.data || [])
+      setSavedBrews(brews.data || [])
+      setLoading(false)
+    })
   }, [user])
 
   const handleLogout = async () => {
@@ -29,6 +36,13 @@ export default function Dashboard() {
   }
 
   if (!user) return null
+
+  if (loading) return (
+    <div className="dash-spinner-container">
+      <div className="dash-spinner"></div>
+      <p className="dash-spinner-text">Brewing your data...</p>
+    </div>
+  )
 
   return (
     <main className="dash-main">
