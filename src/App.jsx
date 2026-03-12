@@ -13,6 +13,7 @@ import WorldVersions from './pages/WorldVersions'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Leaderboard from './pages/Leaderboard'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/glossary" element={<Glossary />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   )
