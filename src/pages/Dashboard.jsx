@@ -19,7 +19,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!user) return
-    supabase.from('quiz_results').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).then(({ data, error }) => { console.log('quiz data:', data, 'error:', error); setQuizHistory(data || []) })
+    supabase.from('quiz_results').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).then(({ data }) => setQuizHistory(data || []))
     supabase.from('saved_brews').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).then(({ data }) => setSavedBrews(data || []))
   }, [user])
 
