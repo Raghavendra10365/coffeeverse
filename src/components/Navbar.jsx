@@ -48,6 +48,7 @@ export default function Navbar() {
           <li><NavLink to="/roast" onClick={() => setMenuOpen(false)}>Roast Levels</NavLink></li>
           <li><NavLink to="/calculator" onClick={() => setMenuOpen(false)}>Calculator</NavLink></li>
           <li><NavLink to="/quiz" onClick={() => setMenuOpen(false)}>Quiz</NavLink></li>
+          <li><NavLink to="/leaderboard" onClick={() => setMenuOpen(false)}>Leaderboard</NavLink></li>
           <li><NavLink to="/glossary" onClick={() => setMenuOpen(false)}>Glossary</NavLink></li>
         </ul>
         {user ? (

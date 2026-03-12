@@ -119,10 +119,10 @@ export default function Quiz() {
         total_questions: QUESTIONS.length,
         percentage: 100,
         time_taken_seconds: 0,
-        user_id: user?.id ?? null
+        user_id: user?.id ?? null,
+        username: user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'Anonymous'
       })
     if (error) console.error('Error saving:', error.message)
-    else console.log('Quiz result saved! ✅', drinkName)
   }
   return (
     <main>
