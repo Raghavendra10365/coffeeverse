@@ -19,7 +19,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!user) return
-    supabase.from('quiz_results').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).then(({ data }) => setQuizHistory(data || []))
+    supabase.from('quiz_results').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).then(({ data, error }) => { console.log('quiz data:', data, 'error:', error); setQuizHistory(data || []) })
     supabase.from('saved_brews').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).then(({ data }) => setSavedBrews(data || []))
   }, [user])
 
@@ -112,7 +112,7 @@ export default function Dashboard() {
                 {savedBrews.map((b, i) => (
                   <div key={i} className="dash-list-item">
                     <div>
-                      <p className="dash-item-title">{b.method || 'Brew'} — {b.coffee_g}g coffee</p>
+                      <p className="dash-item-title">{b.brew_method || 'Brew'} — {b.coffee_grams}g coffee</p>
                       <p className="dash-item-date">{new Date(b.created_at).toLocaleDateString()}</p>
                     </div>
                     <span className="dash-item-score">{b.water_ml}ml</span>

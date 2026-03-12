@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { supabase } from '../supabaseClient'
 import './Calculator.css'
 
 const METHODS = {
@@ -20,6 +21,7 @@ export default function Calculator() {
   const [coffee, setCoffee] = useState(18)
   const [strength, setStrength] = useState('Medium')
   const [copied, setCopied] = useState(false)
+  const [saved, setSaved] = useState(false)
 
   const m = METHODS[method]
   const ratio = m.ratio * STRENGTHS[strength]
@@ -35,6 +37,22 @@ export default function Calculator() {
     navigator.clipboard.writeText(text)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+
+  const saveBrew = async () => {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) { alert('Please log in to save brews!'); return }
+    const { error } = await supabase.from('saved_brews').insert({
+      user_id: user.id,
+      brew_method: method,
+      coffee_grams: displayCoffee,
+      water_ml: displayWater,
+      strength: strength,
+      ratio: String(ratio)
+    })
+    if (error) { console.error(error.message); return }
+    setSaved(true)
+    setTimeout(() => setSaved(false), 2000)
   }
 
   return (
@@ -150,9 +168,14 @@ export default function Calculator() {
               ))}
             </div>
 
-            <button className="copy-btn" onClick={copyRecipe}>
-              {copied ? '✓ Copied!' : 'Copy Recipe'}
-            </button>
+            <div className="calc-btn-row">
+              <button className="copy-btn" onClick={copyRecipe}>
+                {copied ? '✓ Copied!' : 'Copy Recipe'}
+              </button>
+              <button className="copy-btn" onClick={saveBrew}>
+                {saved ? '✓ Saved!' : 'Save Brew'}
+              </button>
+            </div>
           </div>
         </div>
       </section>

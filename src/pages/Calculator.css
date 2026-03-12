@@ -184,3 +184,7 @@
   .calc-wrap { grid-template-columns: 1fr; }
   .result-hero-nums { flex-wrap: wrap; }
 }
+.calc-btn-row {
+  display: flex;
+  gap: 1rem;
+}

@@ -110,13 +110,16 @@ export default function Quiz() {
   const progress = ((currentQ + 1) / QUESTIONS.length) * 100
 
   const saveQuizResult = async (drinkName) => {
+    const { data: { user } } = await supabase.auth.getUser()
     const { error } = await supabase
       .from('quiz_results')
       .insert({
+        drink: drinkName,
         score: Object.keys(answers).length,
         total_questions: QUESTIONS.length,
         percentage: 100,
-        time_taken_seconds: 0
+        time_taken_seconds: 0,
+        user_id: user?.id ?? null
       })
     if (error) console.error('Error saving:', error.message)
     else console.log('Quiz result saved! ✅', drinkName)
