@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './Origins.css'
+import { useEffect, useRef, useState } from 'react'
 
 const REGIONS = [
   {
@@ -11,6 +11,7 @@ const REGIONS = [
     flavours: ['Blueberry', 'Jasmine', 'Citrus', 'Bergamot'],
     stats: { Altitude:'1800–2200m', Harvest:'Oct–Jan', Process:'Washed / Natural', Roast:'Light–Medium' },
     highlight: 'Ethiopia is where coffee was first discovered — the Kaffa region still grows wild coffee trees.',
+     countries: ['ET', 'KE', 'RW'],
   },
   {
     name: 'South America',
@@ -20,6 +21,7 @@ const REGIONS = [
     flavours: ['Caramel', 'Chocolate', 'Nuts', 'Brown Sugar'],
     stats: { Altitude:'1200–1800m', Harvest:'Apr–Aug', Process:'Washed / Natural', Roast:'Medium' },
     highlight: 'Brazil produces nearly 40% of the world\'s coffee supply — more than any other country.',
+    countries: ['CO', 'BR', 'PE'],
   },
   {
     name: 'Central America',
@@ -29,6 +31,7 @@ const REGIONS = [
     flavours: ['Apple', 'Honey', 'Toffee', 'Stone Fruit'],
     stats: { Altitude:'1300–1800m', Harvest:'Dec–Mar', Process:'Washed / Honey', Roast:'Light–Medium' },
     highlight: 'Panama Geisha — grown near Boquete — is the most expensive coffee in the world.',
+    countries: ['GT', 'CR', 'PA'],
   },
   {
     name: 'Asia Pacific',
@@ -38,11 +41,24 @@ const REGIONS = [
     flavours: ['Earth', 'Cedar', 'Dark Chocolate', 'Spice'],
     stats: { Altitude:'700–1500m', Harvest:'May–Nov', Process:'Wet-hulled / Natural', Roast:'Medium–Dark' },
     highlight: 'Sumatra\'s wet-hulling process (Giling Basah) creates its signature earthy, heavy character.',
+     countries: ['ID', 'VN', 'PG'],
   },
 ]
 
 export default function Origins() {
   const revealRefs = useRef([])
+  const [countryData, setCountryData] = useState({})
+
+  useEffect(() => {
+    const allCodes = REGIONS.flatMap(r => r.countries)
+    fetch(`https://restcountries.com/v3.1/alpha?codes=${allCodes.join(',')}`)
+      .then(res => res.json())
+      .then(data => {
+        const map = {}
+        data.forEach(c => { map[c.cca2] = c })
+        setCountryData(map)
+      })
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -95,6 +111,19 @@ export default function Origins() {
                     <span className="origin-stat-key">{k}</span>
                   </div>
                 ))}
+              </div>
+              <div className="origin-countries">
+                {region.countries.map(code => {
+                  const c = countryData[code]
+                  if (!c) return null
+                  return (
+                    <div key={code} className="origin-country-card">
+                      <img src={c.flags.svg} alt={c.name.common} className="origin-country-flag" />
+                      <p className="origin-country-name">{c.name.common}</p>
+                      <p className="origin-country-pop">Pop. {(c.population / 1_000_000).toFixed(1)}M</p>
+                    </div>
+                  )
+                })}
               </div>
             </div>
           </div>
